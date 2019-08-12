@@ -5,9 +5,7 @@ class AuthController < ApplicationController
     is_authenticated = user.authenticate(params[:password])
 
     if user && is_authenticated
-      payload = { user_id: user.id }
-      token = JWT.encode(payload, 'secret', 'HS256')
-      render json: { token: token }
+      render json: { token: encode_token(user) }
     else
       render json: { error: ["Nice try boi"] }, status: :unprocessable_entity
     end
