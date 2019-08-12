@@ -23,3 +23,8 @@ class ApplicationController < ActionController::API
   end
 
 end
+
+#NOTE: (cause Daniela is a genius and warned us)
+#cant user current_user cause its a reserved word T-T
+#"It turns out that current_user was in fact being called since it is the default scope_name for Active Model Serializers."
+#https://github.com/rails-api/active_model_serializers/blob/61059e900cdba72a88970fc790f73984c6bc2e99/docs/general/serializers.md#scope
