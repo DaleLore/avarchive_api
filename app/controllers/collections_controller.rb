@@ -12,24 +12,17 @@ class CollectionsController < ApplicationController
 
   def create
     collection = Collection.create(collection_params)
-    collection.user = current_logged_in_user
-      if collection.save
-        render json: collection
-      else
-        render json: { errors: collection.errors.full_messages }, status: :unprocessable_entity
-      end
+    render json: collection
   end
 
   def destroy
-      @collection = Collection.find(params[:id])
-    # if @collection.user == current_logged_in_user
-      # current_logged_in_user.collections.find(params[:id])
-      @collection.destroy
+    collection = Collection.find(params[:id])
+    collection.destroy
   end
 
   private
-  def collection_params
-    params.permit(:collection_name, :description)
-  end
+    def collection_params
+      params.permit(:collection_name, :description, :user_id)
+    end
 
 end
