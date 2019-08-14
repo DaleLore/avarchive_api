@@ -21,12 +21,10 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    if @collection.user == current_logged_in_user
       @collection = Collection.find(params[:id])
+    # if @collection.user == current_logged_in_user
+      # current_logged_in_user.collections.find(params[:id])
       @collection.destroy
-    else
-      render json: { errors: ["You cannot delete"] }, status: :unauthorized
-    end
   end
 
   private
