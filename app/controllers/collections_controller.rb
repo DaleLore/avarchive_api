@@ -15,6 +15,12 @@ class CollectionsController < ApplicationController
     render json: collection
   end
 
+  def update
+    collection = Collection.find(params[:id])
+    collection.update(collection_params)
+    render json: collection
+  end
+
   def destroy
     collection = Collection.find(params[:id])
     collection.destroy

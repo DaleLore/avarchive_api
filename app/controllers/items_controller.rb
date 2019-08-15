@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.create(item_params)
-    render json: items
+    render json: item
   end
 
   def destroy
