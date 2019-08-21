@@ -1,0 +1,41 @@
+<legend>Collections</legend>
+
+<%= form_tag import_products_path, multipart: true, class: 'form-inline' do %>
+  <div class="form-group">
+    <%= link_to "Export CSV", products_path(format: "csv"), class: 'btn btn-primary' %>
+  </div>
+
+  <div class="form-group">
+    <%= file_field_tag :file, class: '' %>
+  </div>
+
+  <div class="form-group">
+    <%= submit_tag "Import CSV", class: 'btn btn-info' %>
+  </div>
+<% end %>
+
+<br/>
+
+<table class='table table-bordered table-condensed table-striped table-hover'>
+  <thead>
+    <tr>
+      <th>Collection Name</th>
+      <th>Description</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collections.each do |collection| %>
+      <tr>
+        <td><%= collection.collection_name %></td>
+        <td><%= collection.description %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

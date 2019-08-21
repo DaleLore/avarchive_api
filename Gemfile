@@ -9,6 +9,11 @@ gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+
+#Responders for the CSV: https://edgeguides.rubyonrails.org/4_2_release_notes.html
+#Only did it because of this ques: https://stackoverflow.com/questions/35983628/undefined-instance-method-respond-to-in-rails-5-api-controller
+gem 'responders', '~> 2.0'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -17,6 +22,8 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#CSV Installation: https://github.com/ruby/csv
+gem 'csv'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
